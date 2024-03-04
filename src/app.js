@@ -30,7 +30,7 @@ const allowedOrigins = [
   'http://localhost:4000',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  'https://tasktalkapp-production.up.railway.app/',
+  'https://tasktalkapp-production.up.railway.app',
 ]
 const corsOptions = {
   origin: function (origin, callback) {
