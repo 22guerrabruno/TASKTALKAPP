@@ -10,10 +10,14 @@ import taskRoutes from './routes/task.routes.js'
 import groupRoutes from './routes/group.routes.js'
 import messageRoutes from './routes/message.routes.js'
 import { Server } from 'socket.io'
+import path from 'path'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
 import { videoRequest } from './controllers/video.controller.js'
 import { changeStatusUser } from './services/user.service.js'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
 const port = process.env.PORT || 4000
 const app = express()
 app.use(morgan('dev'))
@@ -23,6 +27,7 @@ app.use(cookieParser())
 
 const allowedOrigins = [
   'https://naranja-team-tasktalk.netlify.app',
+  'http://localhost:4000',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
 ]
@@ -38,15 +43,20 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.use('/', userRoutes)
-app.use('/task', taskRoutes)
-app.use('/group', groupRoutes)
-app.use('/messages', messageRoutes)
-app.get('/video/:room&:username', videoRequest)
-
-app.get('/helper', (req, res) => {
+app.use('/api/', userRoutes)
+app.use('/api/task', taskRoutes)
+app.use('/api/group', groupRoutes)
+app.use('/api/messages', messageRoutes)
+app.get('/api/video/:room&:username', videoRequest)
+app.get('/helper', (_req, res) => {
   res.status(200).send('helper')
 })
+
+app.use(express.static(path.resolve(`${__dirname}/../frontend/dist`)))
+
+app.get('/*', (_req, res) =>
+  res.sendFile(path.resolve(`${__dirname}/../frontend/dist/index.html`))
+)
 
 connectDB()
 const server = app.listen(port, () => {

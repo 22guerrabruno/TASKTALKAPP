@@ -1,0 +1,33 @@
+@import 'keep-react/css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.scrollbar {
+  scrollbar-width: thin;
+
+  scrollbar-color: gray transparent;
+}
+.scrollbar2 {
+  scrollbar-width: thin;
+
+  scrollbar-color: #eb6c18 transparent;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-height: 100%;
+}

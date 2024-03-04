@@ -1,0 +1,41 @@
+/* Group Page */
+.group-page-chat {
+  position: relative;
+}
+
+.panel-toggle-button {
+  display: none !important;
+}
+
+.chat-profile-page {
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .group-page-chat {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .panel-toggle-button {
+    display: inherit !important;
+  }
+
+  .chat-profile-page {
+    margin-top: 15px;
+  }
+
+  .group-page-title {
+    display: flex;
+    justify-content: center;
+  }
+
+  .group-page-chat {
+    top: 14px;
+  }
+
+  .panel-column {
+    margin-top: 30px;
+  }
+}
