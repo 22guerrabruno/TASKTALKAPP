@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import clsx from 'clsx';
-import ToolTip from './ToolTip';
-import { useState } from 'react';
-import { BiPencil, BiTrash } from 'react-icons/bi';
-import { GoPlusCircle } from 'react-icons/go';
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import clsx from 'clsx'
+import ToolTip from './ToolTip'
+import { useState } from 'react'
+import { BiPencil, BiTrash } from 'react-icons/bi'
+import { GoPlusCircle } from 'react-icons/go'
 
-import { v4 as uuidv4 } from 'uuid';
-import { useTasks } from '../context/TasksContext';
+import { v4 as uuidv4 } from 'uuid'
+import { useTasks } from '../context/TasksContext'
 
 const DragDropContainer = ({
   id,
@@ -20,9 +20,9 @@ const DragDropContainer = ({
   containers,
   setContainers,
 }) => {
-  const [addNewItem, setAddNewItem] = useState(false);
-  const [edittingContainer, setEdittingContainer] = useState(false);
-  const [titleContainer, setTitleContainer] = useState('');
+  const [addNewItem, setAddNewItem] = useState(false)
+  const [edittingContainer, setEdittingContainer] = useState(false)
+  const [titleContainer, setTitleContainer] = useState('')
 
   const {
     attributes,
@@ -36,14 +36,14 @@ const DragDropContainer = ({
     data: {
       type: 'container',
     },
-  });
+  })
 
-  const { deleteTask, updateTask, updateTitleContainer } = useTasks();
+  const { deleteTask, updateTask, updateTitleContainer } = useTasks()
   const onAddItem = (itemName, currentId) => {
-    setCurrentContainerId(currentId);
-    if (!itemName) return;
-    const id = `item-${uuidv4()}`;
-    const container = containers.find((item) => item.id === currentId);
+    setCurrentContainerId(currentId)
+    if (!itemName) return
+    const id = `item-${uuidv4()}`
+    const container = containers.find((item) => item.id === currentId)
 
     const updatedItems = [
       ...container.items,
@@ -56,10 +56,10 @@ const DragDropContainer = ({
         assignedTo: null,
         followers: [],
       },
-    ];
+    ]
 
-    updateTask(container.id, updatedItems);
-    if (!container) return;
+    updateTask(container.id, updatedItems)
+    if (!container) return
     container.items.push({
       id,
       title: itemName,
@@ -68,32 +68,32 @@ const DragDropContainer = ({
       completed: false,
       assignedTo: null,
       followers: [],
-    });
+    })
 
-    setContainers([...containers]);
-    setItemName('');
-    setAddNewItem(!addNewItem);
-  };
+    setContainers([...containers])
+    setItemName('')
+    setAddNewItem(!addNewItem)
+  }
   const onDeleteContainer = (id) => {
-    deleteTask(id);
+    deleteTask(id)
     const filteredContainers = containers.filter(
       (container) => container.id !== id
-    );
+    )
 
-    setContainers(filteredContainers);
-  };
+    setContainers(filteredContainers)
+  }
 
   const onEditContainer = (id) => {
-    setEdittingContainer(false);
-    const container = containers.find((item) => item.id === id);
+    setEdittingContainer(false)
+    const container = containers.find((item) => item.id === id)
 
-    const updatedContainer = { ...container, title: titleContainer };
+    const updatedContainer = { ...container, title: titleContainer }
 
-    updateTitleContainer(container.id, updatedContainer);
-    if (!container) return;
-    container.title = titleContainer;
-    setContainers([...containers]);
-  };
+    updateTitleContainer(container.id, updatedContainer)
+    if (!container) return
+    container.title = titleContainer
+    setContainers([...containers])
+  }
 
   return (
     <div
@@ -107,13 +107,17 @@ const DragDropContainer = ({
       className={clsx(
         'card-container w-full h-full p-4 bg-orange-400 rounded-xl flex flex-col gap-y-4 justify-between',
         isDragging && 'opacity-50'
-      )}>
-<div className='flex items-center justify-between flex-wrap' style={{ maxWidth: '100%' }}>
-<div className='gap-y-1 w-full'>
+      )}
+    >
+      <div
+        className="flex items-center justify-between flex-wrap"
+        style={{ maxWidth: '100%' }}
+      >
+        <div className="gap-y-1 w-full">
           {edittingContainer ? (
             <input
               autoFocus={true}
-              type='text'
+              type="text"
               value={titleContainer}
               onChange={(e) => setTitleContainer(e.target.value)}
               onKeyDown={(e) =>
@@ -121,73 +125,79 @@ const DragDropContainer = ({
                   setEdittingContainer(!edittingContainer)) ||
                 (e.key === 'Enter' && onEditContainer(id))
               }
-              className='border-2 border-gray-500 rounded-md p-1 w-full'
+              className="border-2 border-gray-500 rounded-md p-1 w-full"
             />
           ) : (
-            <h1 className="text-gray-800 text-md truncate pb-3" style={{ maxWidth: '90%' }}>{title}</h1>
+            <h1
+              className="text-gray-800 text-md truncate pb-3"
+              style={{ maxWidth: '90%' }}
+            >
+              {title}
+            </h1>
           )}
         </div>
-        <div className='flex gap-1 '>
+        <div className="flex gap-1 ">
           <button
             onClick={() => onDeleteContainer(id)}
-            className='border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200'>
-            <ToolTip label='Delete Panel'>
+            className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200"
+          >
+            <ToolTip label="Borrar Panel">
               <BiTrash size={10} />
             </ToolTip>
           </button>
           <button
             onClick={() => {
-              setEdittingContainer(true);
-              setTitleContainer(title);
+              setEdittingContainer(true)
+              setTitleContainer(title)
             }}
-            className='border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200'>
-            <ToolTip label='Edit Panel'>
+            className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200"
+          >
+            <ToolTip label="Editar Panel">
               <BiPencil size={10} />
             </ToolTip>
           </button>
         </div>
       </div>
-      <div className='flex flex-col justify-start h-full'>{children}</div>
+      <div className="flex flex-col justify-start h-full">{children}</div>
       {!addNewItem ? (
         <button
-          className='p-2 rounded-md hover:p-2 text-xs hover:rounded-md hover:bg-gray-100 flex font-bold items-center bg-white'
-          onClick={() => setAddNewItem(!addNewItem)}>
-          <GoPlusCircle
-            size={14}
-            className='mr-2'
-          />
+          className="p-2 rounded-md hover:p-2 text-xs hover:rounded-md hover:bg-gray-100 flex font-bold items-center bg-white"
+          onClick={() => setAddNewItem(!addNewItem)}
+        >
+          <GoPlusCircle size={14} className="mr-2" />
           Add Task
         </button>
       ) : (
-        <div className='flex flex-col w-full items-start gap-4 '>
-          <h1 className='text-gray-800 text-sm font-bold text-start'>
+        <div className="flex flex-col w-full items-start gap-4 ">
+          <h1 className="text-gray-800 text-sm font-bold text-start">
             Add Task
           </h1>
           <input
-            type='text'
-            placeholder='Item Title'
-            name='itemname'
+            type="text"
+            placeholder="Item Title"
+            name="itemname"
             value={itemName}
             onChange={(e) => setItemName(e.target.value)}
             onKeyDown={(e) =>
               (e.key === 'Escape' && setAddNewItem(!addNewItem)) ||
               (e.key === 'Enter' && onAddItem(itemName, id))
             }
-            className='border-2 border-gray-500 rounded-md p-1 w-full text-sm'
+            className="border-2 border-gray-500 rounded-md p-1 w-full text-sm"
           />
           <button
-            className='border-2 p-2 rounded-md hover:border-2 
+            className="border-2 p-2 rounded-md hover:border-2 
             hover:p-2 text-xs hover:rounded-md hover:border-gray-300
-             hover:bg-slate-50/10 flex w-full '
+             hover:bg-slate-50/10 flex w-full "
             onClick={() => {
-              onAddItem(itemName, id);
-            }}>
-            Add Task
+              onAddItem(itemName, id)
+            }}
+          >
+            Añadir Tarea
           </button>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DragDropContainer;
+export default DragDropContainer
