@@ -170,7 +170,7 @@ const DragDropContainer = ({
       ) : (
         <div className="flex flex-col w-full items-start gap-4 ">
           <h1 className="text-gray-800 text-sm font-bold text-start">
-            Add Task
+            Añadir Tarea
           </h1>
           <input
             type="text"
