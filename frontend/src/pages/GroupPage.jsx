@@ -187,16 +187,17 @@ const GroupPage = () => {
           )}
           <div className="flex  items-center justify-center">
             {user?._id === currentGroup?.ownerUser ? (
-              <button
-                onClick={() => toggleModal()}
-                className="bg-orange-500 px-7 p-2.5 border border-orange-500 text-center text-white text-[9px] w-fit font-bold 
+              <ToolTip label="Añadir Integrante">
+                <button
+                  onClick={() => toggleModal()}
+                  className="bg-orange-500 px-7 p-2.5 border border-orange-500 text-center text-white text-[9px] w-fit font-bold 
                rounded-md hover:bg-orange-400 hover:border-orange-400 m-2 pointer-events-auto whitespace-nowrap"
-              >
-                <div className="flex items-center justify-center gap-1">
-                  <FiUserPlus className="text-white w-3 h-3" />
-                  <span>Integrante</span>
-                </div>
-              </button>
+                >
+                  <div className="flex items-center justify-center gap-1">
+                    <FiUserPlus className="text-white w-3 h-3" />
+                  </div>
+                </button>
+              </ToolTip>
             ) : (
               <ToolTip label="Exit Group">
                 <button
