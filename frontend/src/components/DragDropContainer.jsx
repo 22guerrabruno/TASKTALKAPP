@@ -165,7 +165,7 @@ const DragDropContainer = ({
           onClick={() => setAddNewItem(!addNewItem)}
         >
           <GoPlusCircle size={14} className="mr-2" />
-          Add Task
+          Añadir Tarea
         </button>
       ) : (
         <div className="flex flex-col w-full items-start gap-4 ">
