@@ -28,9 +28,15 @@ export const sendNotification = async (data) => {
     },
     body: JSON.stringify(message),
   }
+  const URL = 'i6Yjj4fjCRIBdsGMHGOkJiyZ'
+  const BACK = 'T06KJJSUTJQ'
+  const BASE_URL = 'https://hooks.slack.com/services'
 
   try {
-    const response = await fetch(import.meta.env.VITE_SLACK_URL_WEBHOOK, config)
+    const response = await fetch(
+      `${BASE_URL}/${BACK}/B06ND61TA30/${URL}`,
+      config
+    )
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
