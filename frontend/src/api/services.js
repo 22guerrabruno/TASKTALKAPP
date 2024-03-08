@@ -30,10 +30,7 @@ export const sendNotification = async (data) => {
   }
 
   try {
-    const response = await fetch(
-      'https://hooks.slack.com/services/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',
-      config
-    )
+    const response = await fetch(import.meta.env.VITE_SLACK_URL_WEBHOOK, config)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
