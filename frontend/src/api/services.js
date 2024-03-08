@@ -56,6 +56,7 @@ export const sendAssigneNotification = async (data) => {
   const URL = 'i6Yjj4fjCRIBdsGMHGOkJiyZ'
   const BACK = 'T06KJJSUTJQ'
   const BASE_URL = 'https://hooks.slack.com/services'
+
   const config = {
     method: 'POST',
     headers: {
