@@ -31,7 +31,7 @@ export const sendNotification = async (data) => {
 
   try {
     const response = await fetch(
-      'https://hooks.slack.com/services/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',
+      'https://hooks.slack.com/services/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',
       config
     )
     if (!response.ok) {
