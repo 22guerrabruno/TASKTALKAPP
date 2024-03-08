@@ -114,48 +114,52 @@ const DragDropContainer = ({
         style={{ maxWidth: '100%' }}
       >
         <div className="gap-y-1 w-full">
-          {edittingContainer ? (
-            <input
-              autoFocus={true}
-              type="text"
-              value={titleContainer}
-              onChange={(e) => setTitleContainer(e.target.value)}
-              onKeyDown={(e) =>
-                (e.key === 'Escape' &&
-                  setEdittingContainer(!edittingContainer)) ||
-                (e.key === 'Enter' && onEditContainer(id))
-              }
-              className="border-2 border-gray-500 rounded-md p-1 w-full"
-            />
-          ) : (
-            <h1
-              className="text-gray-800 text-md truncate pb-3"
-              style={{ maxWidth: '90%' }}
-            >
-              {title}
-            </h1>
-          )}
-        </div>
-        <div className="flex gap-1 ">
-          <button
-            onClick={() => onDeleteContainer(id)}
-            className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200"
-          >
-            <ToolTip label="Borrar Panel">
-              <BiTrash size={10} />
-            </ToolTip>
-          </button>
-          <button
-            onClick={() => {
-              setEdittingContainer(true)
-              setTitleContainer(title)
-            }}
-            className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl bg-gray-200"
-          >
-            <ToolTip label="Editar Panel">
-              <BiPencil size={10} />
-            </ToolTip>
-          </button>
+          <div className="flex justify-between gap-1 w-full ">
+            {edittingContainer ? (
+              <input
+                autoFocus={true}
+                type="text"
+                value={titleContainer}
+                onChange={(e) => setTitleContainer(e.target.value)}
+                onKeyDown={(e) =>
+                  (e.key === 'Escape' &&
+                    setEdittingContainer(!edittingContainer)) ||
+                  (e.key === 'Enter' && onEditContainer(id))
+                }
+                className="border-2 border-gray-500 rounded-md p-1 w-full"
+              />
+            ) : (
+              <h1
+                className="text-gray-800 text-md truncate "
+                style={{ maxWidth: '90%' }}
+              >
+                {title}
+              </h1>
+            )}
+            <div className="flex items-center justify-center gap-1">
+              <button
+                onClick={() => onDeleteContainer(id)}
+                className="p-1 text-gray-700 border border-gray-700 shadow-lg 
+                rounded-full hover:text-gray-800 hover:bg-gray-100 hover:shadow-md "
+              >
+                <ToolTip label="Eliminar Panel">
+                  <BiTrash className="w-4 h-4" />
+                </ToolTip>
+              </button>
+              <button
+                onClick={() => {
+                  setEdittingContainer(true)
+                  setTitleContainer(title)
+                }}
+                className="p-1 text-gray-700 border border-gray-700 shadow-lg
+                 hover:bg-gray-100 hover:shadow-md rounded-full hover:text-gray-800"
+              >
+                <ToolTip label="Editar Panel">
+                  <BiPencil className="w-4 h-4" />
+                </ToolTip>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex flex-col justify-start h-full">{children}</div>
@@ -174,7 +178,7 @@ const DragDropContainer = ({
           </h1>
           <input
             type="text"
-            placeholder="Item Title"
+            placeholder="Titulo"
             name="itemname"
             value={itemName}
             onChange={(e) => setItemName(e.target.value)}
