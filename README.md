@@ -2,18 +2,18 @@
 
 ## Descripción General del Proyecto(TLDR)
 
-Este proyecto es una aplicación de gestión de tareas y mensajería grupal. Permite a los usuarios registrarse, crear tareas, asignarse entre sí y unirse a grupos para comunicarse a través de mensajes grupales o individuales (ya sea texto, vídeo, archivo o imágenes). Se espera que la aplicación sea de gran utilidad para trabajos y proyectos académicos en grupo.
+Este proyecto es una aplicación de gestión de tareas, mensajería grupal/P2P y videoconferencias. Permite a los usuarios registrarse, crear tareas, asignarse entre sí y unirse a grupos para comunicarse a través de mensajes grupales o individuales (ya sea texto, vídeo, archivo o imágenes). Se espera que la aplicación sea de gran utilidad para trabajos y proyectos académicos en grupo.
 
 ## Instalación y Ejecución
 
 1. Clona el repositorio.
 2. Ejecuta `npm install` para instalar las dependencias, indicadas en el apartado [tecnologías Utilizadas](#tecnologías-utilizadas).
 3. Configura las variables de entorno en un archivo `.env` (explicado en [requisitos para la integración](#requisitos-para-la-integración)).
-4. Ejecuta `npm run dev` para iniciar el servidor en modo de desarrollo con nodemon.
+4. Ejecuta `npm run dev` para iniciar el servidor y el frontend en modo de desarrollo con nodemon.
 
 ## Estado del Proyecto
 
-El proyecto se encuentra en una fase de desarrollo, una buena parte de la funcionalidad se encuentra ya implementada, pendiente de más implementaciones, mejoras y actualización del frontal de la aplicación.
+El proyecto se encuentra en una fase definitiva, con todas sus funcionalidades y características implementadas como se esperaba. Todas las utilidades, usos y aspecto visual del proyecto estan completos y funcionando correctamente.
 
 ## Funcionalidades Principales
 
@@ -23,6 +23,7 @@ El proyecto se encuentra en una fase de desarrollo, una buena parte de la funcio
 - Gestión de grupos con operaciones como crear, editar, eliminar y agregar/eliminar miembros.
 - Mensajería grupal y P2P.
 - Videollamadas grupales y P2P.
+- Tableros para la visualización y cómoda edición de las tareas.
 
 ## Requisitos para la Integración
 
@@ -33,7 +34,8 @@ El proyecto se encuentra en una fase de desarrollo, una buena parte de la funcio
   - `TOKEN_SECRET` para la generación de tokens de acceso.
   - `PORT` para el puerto en el que se ejecutará el servidor.
   - `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`, `PUBLIC_LIVEKIT_URL` para la funcionalidad de videollamadas.
-  - Otras variables de entorno según sea necesario.
+  - `EMAIL_PASSWORD`: Contraseña del correo electrónico utilizado para el envío de notificaciones.
+  - `USER_EMAIL`: Correo electrónico utilizado para el envío de notificaciones.
 
 ## Tecnologías Utilizadas
 
@@ -124,6 +126,7 @@ Esta arquitectura y modelo de relaciones entre entidades proporcionan una base p
 
 TaskTalk aspira a convertirse en una aplicación diseñada para el ámbito profesional y educativo. Se espera que su implementación en estos campos agilice y optimice tanto el trabajo como la comunicación en grupo, ya sea en entornos laborales o académicos. Además, se vislumbran posibles usos de la aplicación a nivel P2P o individual, facilitando la creación de tareas y listas para cualquier propósito.
 
-En la versión actual del proyecto, aunque dista de alcanzar la visión completa de la aplicación, ya cuenta con numerosas utilidades funcionales en el backend, como se detalla en [funcionalidades principales](#funcionalidades-principales). También presenta una versión inicial y rudimentaria del frontend, que será desarrollado de manera más completa, cómoda y estéticamente agradable.
+El proyecto de encuentra en una versión definitiva, y ya cuenta con todas las funcionalidades y herramientas previstas ya implementadas y en correcto funcionamiento,como se detalla en [funcionalidades principales](#funcionalidades-principales). Además de estas funcionalidades, también cuenta con su maquetado finalizado, responsive y, esperamos que agradable a nivel estético.
 
-**Nota:** El proyecto está en desarrollo, por lo que el frontend está en una fase muy primitiva y será mejorado enormemente.
+
+**Nota:** Está es la última versión de este proyecto hasta nuevo aviso.
