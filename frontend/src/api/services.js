@@ -53,7 +53,9 @@ export const sendAssigneNotification = async (data) => {
   const message = {
     text: `This ${taskTitle} from ${groupName} group in ${containerTitle} has been modificated by ${name} ${surname} with email ${email} and assigned to ${assignedTo}`,
   }
-
+  const URL = 'i6Yjj4fjCRIBdsGMHGOkJiyZ'
+  const BACK = 'T06KJJSUTJQ'
+  const BASE_URL = 'https://hooks.slack.com/services'
   const config = {
     method: 'POST',
     headers: {
@@ -63,7 +65,10 @@ export const sendAssigneNotification = async (data) => {
   }
 
   try {
-    const response = await fetch(import.meta.env.VITE_SLACK_URL_WEBHOOK, config)
+    const response = await fetch(
+      `${BASE_URL}/${BACK}/B06ND61TA30/${URL}`,
+      config
+    )
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }

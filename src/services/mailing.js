@@ -99,7 +99,7 @@ export const createVerificationEmail = (tokenAccess) => {
     </style>
     <body>
     <h1>Verificando su cuenta de TaskTalk</h1>
-    <p>Se ha creado una cuenta en TaskTalk con este correo electrónico, si usted no ha creado la cuenta, desestime este correo, si usted la creo, entonces verifíquela<a href="https://naranja-team-tasktalk.netlify.app/verify/${tokenAccess}" target="_blank" rel="noopener noreferrer"> haciendo click en este link</a>. Será redirigido automáticamente al inicio de sesión.</p>
+    <p>Se ha creado una cuenta en TaskTalk con este correo electrónico, si usted no ha creado la cuenta, desestime este correo, si usted la creo, entonces verifíquela<a href="https://tasktalkapp-production.up.railway.app/verify/${tokenAccess}" target="_blank" rel="noopener noreferrer"> haciendo click en este link</a>. Será redirigido automáticamente al inicio de sesión.</p>
     <br/>
     <p class='firma'>Equipo de TaskTalk.</p>
   </body>
