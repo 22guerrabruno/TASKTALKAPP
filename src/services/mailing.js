@@ -102,8 +102,7 @@ export const createVerificationEmail = (tokenAccess) => {
     <p>Se ha creado una cuenta en TaskTalk con este correo electrónico, si usted no ha creado la cuenta, desestime este correo, si usted la creo, entonces verifíquela<a href="https://tasktalkapp-production.up.railway.app/verify/${tokenAccess}" target="_blank" rel="noopener noreferrer"> haciendo click en este link</a>. Será redirigido automáticamente al inicio de sesión.</p>
     <br/>
     <p class='firma'>Equipo de TaskTalk.</p>
-  </body>
-  </html>`
+  `
 }
 
 export async function sendNewPassword(email, password) {
