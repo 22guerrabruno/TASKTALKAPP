@@ -1,6 +1,6 @@
 # TASKTALK v4
 
-## Descripción General del Proyecto(TLDR)
+## Descripción General del Proyecto
 
 Este proyecto es una aplicación de gestión de tareas y mensajería grupal. Permite a los usuarios registrarse, crear tareas, asignarse entre sí y unirse a grupos para comunicarse a través de mensajes grupales o individuales (ya sea texto, vídeo, archivo o imágenes). Se espera que la aplicación sea de gran utilidad para trabajos y proyectos académicos en grupo.
 
